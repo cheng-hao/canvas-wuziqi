@@ -193,7 +193,6 @@ huaqipan();
 	    	localStorage.removeItem('x');
 	    }
 	}
-	
 	//如果本地存储中有棋盘数据，读取这些数据并绘制到页面中
 	if(localStorage.data){
 	    qizi=JSON.parse(localStorage.data);//转换为原对象
