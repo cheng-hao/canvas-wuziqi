@@ -58,32 +58,6 @@ window.onload=function(){
 	ctx.beginPath();
 	ctx.arc(460.5,460.5,5,0,Math.PI*2);
 	ctx.fill();
-	//棋盘背景
-	/*var img=new Image();
-	img.src="images/1.jpg"
-	img.onload = function() {  
-          ctx.drawImage(img,0,0);  
-        }*/
-	/*ctx.fillStyle='rgba(255,255,0,.5)';
-	ctx.fillRect(20,20,560,560);*/
-	//渐变
-	/*var lingrad= ctx.createLinearGradient(20,300,580,300);
-	lingrad.addColorStop(0,'red');
-	lingrad.addColorStop(0.2,'orange');
-	lingrad.addColorStop(0.4,'yellow');
-	lingrad.addColorStop(0.6,'green');
-	lingrad.addColorStop(0.8,'blue');
-	lingrad.addColorStop(1,'purple');
-
-	ctx.lineWidth=4;
-	ctx.lineCap='round';
-	ctx.strokeStyle=lingrad;
-	ctx.fillStyle=lingrad;
-
-	ctx.beginPath();
-	ctx.moveTo(20,300);
-	ctx.lineTo(580,300);
-	ctx.stroke();*/
 }
 huaqipan();
 
@@ -105,17 +79,7 @@ huaqipan();
 		ctx.arc(zx,zy,14,0,Math.PI*2);
 		ctx.fill();
 	}
-	//使用图片
-	/*var qipanimg= document.querySelector("#sucai");
-	var luozi=function(x,y,color){
-		var zx=40*x+4.5;
-		var zy=40*y+4.5;
-		if(color){
-			ctx.drawImage(qiziimg,0,0,75,75,zx,zy,36,36);
-		}else{
-			ctx.drawImage(qiziimg,85,0,75,75,zx,zy,36,36);
-		}
-	}*/
+	
 	var xy2id = function(x,y) {
 		return x+'_'+y;
 	}
@@ -149,12 +113,12 @@ huaqipan();
 
   canvas.onclick=function(e){
 		var x=Math.round((e.offsetX-20.5)/40);//四舍五入  确定点击的位置离哪个落点近
-		var y=Math.round((e.offsetY-20.5)/40);
+		var y=Math.round((e.offsetY-20.5)/40)\;
 		if(qizi[x+'_'+y]){return;}//通过字典判断  x + '_' + y  是否存在，是的话就是有子啦
-		luozi(x,y,kaiguan);
-		qizi[x+'_'+y]=kaiguan?'black':'white'; //保存下的是黑子还是白子
+		luozi(x,y,black);
+		qizi[x+'_'+y]=black?'black':'white'; //保存下的是黑子还是白子
 
-		if(kaiguan){
+		/*if(kaiguan){
 			//alert(1);
 			if( panduan(x,y,'black') ){
 
@@ -191,7 +155,7 @@ huaqipan();
 	    	localStorage.x='a';
 	    }else{
 	    	localStorage.removeItem('x');
-	    }
+	    }*/
 	}
 	//如果本地存储中有棋盘数据，读取这些数据并绘制到页面中
 	if(localStorage.data){
